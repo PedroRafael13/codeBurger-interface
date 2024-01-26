@@ -12,7 +12,7 @@ import LoginImg from '../../assets/logo-image2.svg'
 import Button from '../../components/Button'
 
 function Login() {
-  const users = useUser()
+  const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string().email("O e-mail é invalido").required("O e-mail é obrigatório"),

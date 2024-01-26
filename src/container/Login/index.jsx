@@ -1,16 +1,18 @@
-import React from "react"
+import React from 'react'
 import * as Yup from 'yup'
-import { Container, ContainerItens, Input, Label, LoginImage, SingLink, ErrorMessage } from "./styles"
-import { useForm } from "react-hook-form"
+import { Container, ContainerItens, Input, Label, LoginImage, SingLink, ErrorMessage } from './styles'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { toast } from 'react-toastify'
 
+import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
-import Logo from "../../assets/login-image.svg"
-import LoginImg from "../../assets/logo-image2.svg"
-import Button from "../../components/Button"
-
+import Logo from '../../assets/login-image.svg'
+import LoginImg from '../../assets/logo-image2.svg'
+import Button from '../../components/Button'
 
 function Login() {
+  const users = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string().email("O e-mail é invalido").required("O e-mail é obrigatório"),
@@ -22,12 +24,19 @@ function Login() {
   })
 
   const onSubmit = async clientData => {
-    const response = await api.post('sessions', {
-      email: clientData.email,
-      password: clientData.password
-    })
+    const { data } = await toast.promise(
+      api.post('sessions', {
+        email: clientData.email,
+        password: clientData.password
+      }),
+      {
+        pending: 'Verificando seus dados',
+        success: 'Tudo certo, seja bem-vindo 👌',
+        error: 'Verfique seu e-mail e senha 🤯'
+      }
+    )
 
-    console.log(response)
+    putUserData(data)
   }
 
   return (

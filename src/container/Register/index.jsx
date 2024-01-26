@@ -4,11 +4,11 @@ import { Container, ContainerItens, Input, Label, LoginImage, SingLink, ErrorMes
 import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
 
+import { toast } from 'react-toastify'
 import api from '../../services/api'
 import Logo from "../../assets/register-image.svg"
 import LoginImg from "../../assets/logo-image2.svg"
 import Button from "../../components/Button"
-
 
 function Register() {
 
@@ -24,13 +24,27 @@ function Register() {
   })
 
   const onSubmit = async clientData => {
-    const response = await api.post('users', {
-      name: clientData.name,
-      email: clientData.email,
-      password: clientData.password
-    })
+    try {
+      const { status } = await api.post('users', {
+        name: clientData.name,
+        email: clientData.email,
+        password: clientData.password
+      }, {
+        validateStatus: () => true
+      })
 
-    console.log(response)
+      if (status === 200 || status === 201) {
+        toast.promise('Cadastro criado com sucesso!')
+      }
+      else if (status === 409) {
+        toast.error('O e-mail já esta registrado, faça login')
+      }
+      else {
+        throw new Error()
+      }
+    } catch (errors) {
+      toast.error('O sistema está fora do ar, tente novamente mais tarde')
+    }
   }
 
   return (

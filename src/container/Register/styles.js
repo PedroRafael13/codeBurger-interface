@@ -33,7 +33,7 @@ export const ContainerItens = styled.div`
     line-height: 28px;
     color: #ffffff;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 10px;
   } 
 `
 
@@ -43,7 +43,7 @@ export const Label = styled.p`
   font-size:12px;
   line-height:14px;
   color:#ffffff;
-  margin-top:28px;
+  margin-top:${props => (props.error ? '12px' : '20px')};
   margin-bottom:25px;
 `
 

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { toast } from 'react-toastify'
 
+import { Link } from 'react-router-dom'
 import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 import Logo from '../../assets/login-image.svg'
@@ -58,7 +59,7 @@ function Login() {
 
           <Button type="submit" style={{ marginTop: 75, marginBottom: 25 }} >Entrar</Button>
         </form>
-        <SingLink>Não tem conta? <a>Faça sua conta</a> </SingLink>
+        <SingLink>Não tem conta? <Link style={{ color: '#FFFf' }} to="/cadastro">Faça sua conta</Link> </SingLink>
       </ContainerItens>
     </Container>
   )

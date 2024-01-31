@@ -11,7 +11,7 @@ function Routes() {
       <Switch>
         <Route component={Login} path="/login"></Route>
         <Route component={Register} path="/cadastro"></Route>
-        <privateRoutes component={Home} path="/"></privateRoutes>
+        <Route component={Home} path="/"></Route>
       </Switch>
     </Router>
   )

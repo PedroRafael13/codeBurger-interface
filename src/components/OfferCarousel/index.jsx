@@ -9,18 +9,16 @@ function OfferCarousel() {
   const [offers, setOffer] = useState([])
 
   useEffect(() => {
-    async function loadOffer() {
+    async function loadOffers() {
       const { data } = await api.get('products')
+
+      const onlyOffers = data.filter(products => products.offer).map(product => {
+        return { ...product, formatedPrice: formartCurrency(product.price) }
+      })
 
       setOffer(onlyOffers)
     }
-
-    const onlyOffers = data.filter(product => product.offer)
-      .map(product => {
-        return { ...product, formatedPrince: formantCurrency(product.prince) }
-      })
-
-    loadOffer()
+    loadOffers()
   }, [])
 
   const breakPoints = [

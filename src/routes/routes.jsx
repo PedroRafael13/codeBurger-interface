@@ -3,7 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import Home from '../container/Home'
 import Login from '../container/Login/index'
 import Register from '../container/Register/index'
-import privateRoutes from './private-routes'
+import PrivateRoutes from './private-routes'
 
 function Routes() {
   return (
@@ -11,7 +11,7 @@ function Routes() {
       <Switch>
         <Route component={Login} path="/login"></Route>
         <Route component={Register} path="/cadastro"></Route>
-        <Route component={Home} path="/"></Route>
+        <PrivateRoutes exact component={Home} path="/"></PrivateRoutes>
       </Switch>
     </Router>
   )

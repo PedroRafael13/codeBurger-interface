@@ -1,5 +1,5 @@
 import React from 'react'
-import LogoHome from '../../assets/home-image.svg'
+import LogoHome from '../../assets/code-logo.svg'
 import CategoryCarousel from '../../components/CategoryCarousel'
 import OfferCarousel from '../../components/OfferCarousel'
 import { Container, HomeImg } from './style'

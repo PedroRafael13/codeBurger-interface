@@ -2,6 +2,10 @@ import styled from "styled-components"
 
 export const Container = styled.div``
 
+export const CategoriesMenu = styled.div``
+
+export const ContainerItens = styled.div``
+
 export const ProductImg = styled.img`
    width: 100%;
 `
@@ -13,7 +17,7 @@ export const ProductMenu = styled.div`
   margin-top: 20px;
 `
 
-export const ProductButton = styled.button`
+export const CategoryButton = styled.button`
 cursor: pointer;
   background: none;
   border: none;

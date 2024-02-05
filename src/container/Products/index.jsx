@@ -1,12 +1,11 @@
 import React from 'react'
-import { Container, ProductButton, ProductImg, ProductMenu } from './style'
+import { Container, ProductImg, CategoryButton, CategoriesMenu } from './style'
 import LogoImage from '../../assets/home-image.svg'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
 function Products() {
   const [category, setcategories] = useState([])
-  const [isActiveCategory, setisActiveCategories] = useState([0])
 
   useEffect(() => {
     async function loadCategory() {
@@ -23,12 +22,18 @@ function Products() {
 
   return (
     <Container>
-      <ProductImg src={LogoImage} alt='Logo-produtos' />
-      <ProductMenu>
-        {category && category.map((category) => {
-          <ProductButton type='button' key={category.id} onClick={() => { setisActivecategories }} >{category.name}</ProductButton>
-        })}
-      </ProductMenu>
+      <ProductImg src={LogoImage} alt="logo da home" />
+      <CategoriesMenu>
+        {category &&
+          category.map(category => (
+            <CategoryButton
+              type="button"
+              key={category.id}
+            >
+              {category.name}
+            </CategoryButton>
+          ))}
+      </CategoriesMenu>
     </Container>
   )
 }

@@ -12,7 +12,6 @@ export const ContainerMenu = styled.div`
   gap:50px;
 `
 
-
 export const CategoryButton = styled.button`
   cursor: pointer;
   background: none;
@@ -23,4 +22,11 @@ export const CategoryButton = styled.button`
   font-size: 17px;
   line-height: 20px;
   padding-bottom: 5px;
+`
+
+export const ContainerProduct = styled.div`
+  display: flex;
+  grid-template-columns:repeat(3,1);
+  gap: 10px;
+  padding: 40px;
 `

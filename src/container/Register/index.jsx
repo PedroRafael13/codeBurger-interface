@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import Logo from "../../assets/register-image.svg"
 import LoginImg from "../../assets/logo-image2.svg"
-import Button from "../../components/Button"
+import { Button } from "../../components"
 
 function Register() {
 

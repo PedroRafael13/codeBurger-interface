@@ -5,7 +5,7 @@ import { Container, OfferImg, ContainerItens, OfferImage, OfferButton } from './
 import api from '../../services/api'
 import Carousel from 'react-elastic-carousel'
 
-function OfferCarousel() {
+export function OfferCarousel() {
   const [offers, setOffer] = useState([])
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function OfferCarousel() {
             <ContainerItens key={product.id} >
               <OfferImage src={product.url} alt="capa-das-ofertas" />
               <p>{product.name}</p>
-              <p>{product.formatedPrince}</p>
+              <p>{product.formartCurrency}</p>
               <OfferButton>Peça Agora</OfferButton>
             </ContainerItens>
           ))}
@@ -46,5 +46,3 @@ function OfferCarousel() {
     </Container>
   )
 }
-
-export default OfferCarousel

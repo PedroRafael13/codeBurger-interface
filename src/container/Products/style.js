@@ -1,6 +1,9 @@
 import styled from "styled-components"
 
-export const Container = styled.div``
+export const Container = styled.div`
+  background: #e5e5e5;
+  min-height:100vh;
+`
 
 export const ProductImg = styled.img`
    width: 100%;
@@ -29,4 +32,6 @@ export const ContainerProduct = styled.div`
   grid-template-columns:repeat(3,1);
   gap: 10px;
   padding: 40px;
+  justify-content:center;
+  margin-top:20px;
 `

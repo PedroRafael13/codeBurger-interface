@@ -10,7 +10,7 @@ import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 import Logo from '../../assets/login-image.svg'
 import LoginImg from '../../assets/logo-image2.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 
 function Login() {
   const history = useHistory()

@@ -38,7 +38,7 @@ export function OfferCarousel() {
             <ContainerItens key={product.id} >
               <OfferImage src={product.url} alt="capa-das-ofertas" />
               <p>{product.name}</p>
-              <p>{product.formartCurrency}</p>
+              <p>{product.formatedPrince}</p>
               <OfferButton>Peça Agora</OfferButton>
             </ContainerItens>
           ))}

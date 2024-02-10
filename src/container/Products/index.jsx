@@ -9,7 +9,7 @@ import { CardProduct } from '../../components'
 
 function Products() {
   const [category, setCategories] = useState([])
-  const [product, setProduct] = useState([])
+  const [products, setProducts] = useState([])
   const [filtreProduct, setFiltreProduct] = useState([])
   const [activerCategory, setActiverCategory] = useState([0])
 
@@ -26,10 +26,10 @@ function Products() {
       const { data: allProduct } = await api.get('products')
 
       const newProduct = allProduct.map(product => {
-        return { ...product, formatedPrice: formartCurrency(product.price) }
+        return { ...product, formatdPrice: formartCurrency(product.price) }
       })
 
-      setProduct(newProduct)
+      setProducts(newProduct)
     }
 
     loadProduct()
@@ -44,7 +44,7 @@ function Products() {
       const newFiltreProduct = products.filter((product) => product.category_id === activerCategory)
       setFiltreProduct(newFiltreProduct)
     }
-  }, [activerCategory, product])
+  }, [activerCategory, products])
 
   return (
     <Container>

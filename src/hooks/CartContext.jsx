@@ -4,20 +4,35 @@ import PropTypes from 'prop-types'
 const CartContext = createContext({})
 
 export const CartProvider = ({ children }) => {
-  const [cartProduts, setCartProduts] = useState({})
+  const [cartProduts, setCartProduts] = useState([])
 
-  const putProduts = async userInfo => {
-    setCartProduts(userInfo)
+  const putProduts = async products => {
+    const cartIndex = cartProduts.findIndex(prd => prd.id === products.id)
 
-    await localStorage.setItem('codeburger:userData', JSON.stringify(userInfo))
+    let newCartProduct = []
+    if (cartIndex > 0) {
+      newCartProduct = cartProduts
+
+      newCartProduct[cartIndex].quantity = newCartProduct[cartIndex].quantity + 1
+
+      setCartProduts(newCartProduct)
+    }
+
+    else {
+      products.quantity = 1
+      newCartProduct = ([...cartProduts, products])
+      setCartProduts(newCartProduct)
+    }
+
+    await localStorage.setItem('codeburger:cartInfo', JSON.stringify(cartProduts))
   }
 
   useEffect(() => {
     const loadUserData = async () => {
-      const clientInfo = await localStorage.getItem('codeburger:userData')
+      const clientCart = await localStorage.getItem('codeburger:cartinfo')
 
-      if (clientInfo) {
-        setCartProduts(JSON.parse(clientInfo))
+      if (clientCart) {
+        setCartProduts(JSON.parse(clientCart))
       }
     }
 
@@ -29,8 +44,8 @@ export const CartProvider = ({ children }) => {
   )
 }
 
-export const useUser = () => {
-  const context = useContext(cartProduts)
+export const useCart = () => {
+  const context = useContext(CartContext)
 
   if (!context) {
     throw new Error("useUser must be used with UserContext")

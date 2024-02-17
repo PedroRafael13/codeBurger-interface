@@ -27,6 +27,44 @@ export const CartProvider = ({ children }) => {
     await localStorage.setItem('codeburger:cartInfo', JSON.stringify(cartProduts))
   }
 
+  const increaseProduct = async productId => {
+    const newCart = cartProduts.map((product) => {
+      return product.id === productId
+        ? { ...product, quantity: product.quantity + 1 }
+        : product
+    })
+
+    setCartProduts(newCart)
+
+    await localStorage.setItem('codeburger:cartInfo', JSON.stringify(newCart))
+  }
+
+  const deleteProduct = async productId => {
+    const newCart = cartProduts.filter(product => product.id === productId)
+
+    setCartProduts(newCart)
+
+    await localStorage.setItem('codeburger:cartInfo', JSON.stringify(newCart))
+  }
+
+  const desncreaseProduct = async productId => {
+    const cartIndex = cartProduts.findIndex(pd => pd.id === productId)
+
+    if (cartProduts[cartIndex].quantity > 1) {
+      const newCart = cartProduts.map((product) => {
+        return product.id === productId
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      })
+
+      setCartProduts(newCart)
+
+      await localStorage.setItem('codeburger:cartInfo', JSON.stringify(newCart))
+    } else {
+      deleteProduct(productId)
+    }
+  }
+
   useEffect(() => {
     const loadUserData = async () => {
       const clientCart = await localStorage.getItem('codeburger:cartinfo')
@@ -40,7 +78,8 @@ export const CartProvider = ({ children }) => {
   }, [])
 
   return (
-    <CartContext.Provider value={{ putProduts, cartProduts }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ putProduts, cartProduts, increaseProduct, desncreaseProduct }}
+    >{children}</CartContext.Provider>
   )
 }
 

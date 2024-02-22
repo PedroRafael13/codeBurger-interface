@@ -6,8 +6,10 @@ import { Container, CartImg } from './style'
 function Cart() {
   return (
     <Container>
-      <CartImg src={CartHome} alt='logo-home' />
-      <CartItems />
+      <Wrappper>
+        <CartImg src={CartHome} alt='logo-home' />
+        <CartItems />
+      </Wrappper>
     </Container>
   )
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useCart } from '../../hooks/CartContext'
+import formatCurrency from '../../utils/formantCurrency'
 import { Container, Header, Body, EmptyCart } from './style'
-import formatCurrency from '../../utils/formatCurrency'
+
 
 export function CartItems() {
   const { cartProduts, increaseProduct, desncreaseProduct } = useCart()
@@ -27,7 +28,7 @@ export function CartItems() {
               <p>{product.quantity}</p>
               <button onClick={() => increaseProduct(product.id)} >+</button>
             </div>
-            <p>{formatCurrency(product.quantity * product.prince)}</p>
+            <p>{formatCurrency(product.quantity * product.price)}</p>
           </Body>
         ))
         : (

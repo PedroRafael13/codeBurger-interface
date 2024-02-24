@@ -97,6 +97,6 @@ export const useCart = () => {
   return context
 }
 
-UserProvider.propTypes = {
+CartProvider.propTypes = {
   children: PropTypes.node
 }

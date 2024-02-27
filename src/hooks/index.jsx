@@ -1,11 +1,10 @@
 import React from "react"
-import { UserProvider } from "./UserContext"
+//import { UserProvider } from "./UserContext"
 import { CartProvider } from "./CartContext"
 import PropTypes from 'prop-types'
 
 const AppProvider = ({ children }) => {
   <CartProvider>
-    <UserProvider>{children}</UserProvider>
   </CartProvider>
 }
 
@@ -14,3 +13,5 @@ AppProvider.propTypes = {
 }
 
 export default AppProvider
+
+// <UserProvider>{children}</UserProvider>

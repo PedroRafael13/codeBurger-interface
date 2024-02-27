@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Container } from "./style"
-import { useCart } from '../../hooks/CartContext'
+//import { useCart } from '../../hooks/CartContext'
 
 import formatCurrency from '../../utils/formantCurrency'
 import api from '../../services/api'

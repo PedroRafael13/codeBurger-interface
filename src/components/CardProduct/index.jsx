@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types"
 import { Container, ImageProduct, ProductName, ProductPrice } from "./style";
 import { Button } from '../Button'
-import { useCart } from "../../hooks/CartContext";
+//import { useCart } from "../../hooks/CartContext";
 export function CardProduct({ products }) {
   const { putProduts } = useCart()
 

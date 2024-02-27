@@ -1,11 +1,11 @@
 import React from 'react'
-import { useCart } from '../../hooks/CartContext'
+//import { useCart } from '../../hooks/CartContext'
 import formatCurrency from '../../utils/formantCurrency'
 import { Container, Header, Body, EmptyCart } from './style'
 
 
 export function CartItems() {
-  const { cartProduts, increaseProduct, desncreaseProduct } = useCart()
+  //const { cartProduts, increaseProduct, desncreaseProduct } = useCart()
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react"
+/* import React, { createContext, useContext, useEffect, useState } from "react"
 import PropTypes from 'prop-types'
 
 const CartContext = createContext({})
@@ -100,3 +100,4 @@ export const useCart = () => {
 CartProvider.propTypes = {
   children: PropTypes.node
 }
+*/

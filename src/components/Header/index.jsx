@@ -1,7 +1,9 @@
+import { Container } from "./style";
+
 export function Header() {
   return (
-    <div>
+    <Container>
       <h1>oii</h1>
-    </div>
+    </Container>
   )
 }

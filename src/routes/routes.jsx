@@ -13,7 +13,7 @@ function Routes() {
       <Switch>
         <Route component={Login} path="/login"></Route>
         <Route component={Register} path="/cadastro"></Route>
-        <PrivateRoutes exact component={Home} path="/"></PrivateRoutes>
+        <PrivateRoutes component={Home} path="/"></PrivateRoutes>
         <PrivateRoutes component={Products} path="/produtos"></PrivateRoutes>
         <PrivateRoutes component={Cart} path="/carrinho"></PrivateRoutes>
       </Switch>

@@ -8,8 +8,6 @@ function Cart() {
     <Container>
       <CartImg src={CartHome} alt='logo-home' />
       <Wrappper>
-        <CartItems />
-        <CartResume />
       </Wrappper>
     </Container>
   )

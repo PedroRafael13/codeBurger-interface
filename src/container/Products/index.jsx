@@ -17,7 +17,7 @@ function Products() {
     async function loadCategory() {
       const { data } = await api.get('categories')
 
-      const newCategories = [{ id: 0, name: 'Todos' }, ...data]
+      const newCategories = [{ id: 1, name: 'Todos' }, ...data]
 
       setCategories(newCategories)
     }

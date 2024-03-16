@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
       product.quantity = 1
       newCartProducts = [...cartProduts, product]
       setCartProduts(newCartProducts)
-    }
+    } 7676512
 
     await localStorage.setItem('codeburger:cartInfo', JSON.stringify(newCartProducts))
   }

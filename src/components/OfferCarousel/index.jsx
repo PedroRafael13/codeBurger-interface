@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import formantCurrency from '../../utils/formantCurrency'
 import Offer from '../../assets/offers-logo-image.svg'
 import { Container, OfferImg, ContainerItens, OfferImage, OfferButton } from './style'
 import api from '../../services/api'
 import Carousel from 'react-elastic-carousel'
+import formatCurrency from '../../utils/formantCurrency'
 
 export function OfferCarousel() {
   const [offers, setOffer] = useState([])

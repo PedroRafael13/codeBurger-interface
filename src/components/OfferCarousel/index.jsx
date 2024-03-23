@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Offer from '../../assets/offers-logo-image.svg'
 import { Container, OfferImg, ContainerItens, OfferImage, OfferButton } from './style'
-import api from '../../services/api'
 import Carousel from 'react-elastic-carousel'
 import formatCurrency from '../../utils/formantCurrency'
+import api from '../../services/api'
 
 export function OfferCarousel() {
-  const [offers, setOffer] = useState([])
+  const [offers, setOferrs] = useState([])
 
   useEffect(() => {
     async function loadOffers() {
       const { data } = await api.get('products')
 
-      const onlyOffers = data.filter(products => products.offer).map(product => {
-        return { ...product, formatedPrice: formartCurrency(product.price) }
-      })
+      const onlyOffers = data.filter(product => product.offers)
 
-      setOffer(onlyOffers)
+      setOferrs(onlyOffers)
     }
+
     loadOffers()
   }, [])
 
@@ -38,7 +37,7 @@ export function OfferCarousel() {
             <ContainerItens key={product.id} >
               <OfferImage src={product.url} alt="capa-das-ofertas" />
               <p>{product.name}</p>
-              <p>{product.formartCurrency}</p>
+              <p>{product.formatCurrency}</p>
               <OfferButton>Peça Agora</OfferButton>
             </ContainerItens>
           ))}

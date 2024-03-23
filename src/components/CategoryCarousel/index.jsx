@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react'
 
 import Category from '../../assets/category-logo-image.svg'
 import { Container, CategoryImg, ContainerItens, CategoryImage, CategoryButton } from './style'
-import api from '../../services/api'
 import Carousel from 'react-elastic-carousel'
+import api from '../../services/api'
 
 export function CategoryCarousel() {
-  const [category, setcategories] = useState([])
+  const [categories, setcategories] = useState([])
 
   useEffect(() => {
-    async function loadCategory() {
+    async function loadCategories() {
       const { data } = await api.get('categories')
 
       setcategories(data)
     }
 
-    loadCategory()
+    loadCategories()
   }, [])
 
   const breakPoints = [
@@ -31,12 +31,13 @@ export function CategoryCarousel() {
       <CategoryImg src={Category} alt='logo-home' />
       <Carousel itemsToShow={4} style={{ width: '90%' }} breakPoints={breakPoints} >
         {
-          category && category.map(category => (
+          categories && categories.map(category => (
             <ContainerItens key={category.id} >
-              <CategoryImage src={category.url} alt="capa-das-categorias" />
+              <CategoryImage>{category.url}</CategoryImage>
               <CategoryButton>{category.name}</CategoryButton>
             </ContainerItens>
-          ))}
+          ))
+        }
       </Carousel>
     </Container>
   )
